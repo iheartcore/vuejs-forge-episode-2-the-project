@@ -12,11 +12,10 @@ async function handleCheckout() {
     <h1 class="text-3xl mb-5 font-bold">Your Cart</h1>
     <div class="md:flex w-full">
       <div class="md:w-3/4">
-        <!-- Use this markup to display an empty cart -->
-        <!-- <div  class="italic text-center pt-10">
+        <div v-if="cartStore.count === 0"  class="italic text-center pt-10">
           Cart is empty
-        </div> -->
-        <div class="overflow-x-auto">
+        </div>
+        <div v-else class="overflow-x-auto">
           <div class="table w-full">
             <table class="w-full">
               <!-- head -->

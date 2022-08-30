@@ -104,23 +104,20 @@ export function useDeskree() {
       return loggedInUser.value;
     },
     async updateCart(products) {
+      console.log(products)
       if (!loggedInUser.value || !loggedInUser.value.cartId) return;
 
       // persist user's cart data to Deskree here
-
-      // example of what the return from Deskree will look like
-      return {
-        data: {
-          author: "4xsOPtHHiSMI06OHT5gvDnwmLuo2",
-          createdAt: "2022-08-19T06:24:47-05:00",
-          products: JSON.parse("[]"),
-          updatedAt: "2022-08-22T11:03:07-05:00",
-        },
-      };
+      return dbRestRequest(`/carts/${loggedInUser.value.cartId}`, "PATCH", {
+        products: JSON.stringify(products)
+      })
     },
     async getCart() {
       // get the user's persisted cart from Deskree here
-      return [];
+      if (!loggedInUser.value || !loggedInUser.value.cartId) return;
+      const res = await dbRestRequest(`/carts/${loggedInUser.value.cartId}`);
+      res.data.products = JSON.parse(res.data.products);
+      return res.data
     },
   };
 
