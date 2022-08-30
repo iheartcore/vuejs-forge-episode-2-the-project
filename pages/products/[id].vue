@@ -20,6 +20,7 @@ const description = computed(() =>
 );
 
 function handleAddToCart(product) {
+  useCartStore().addToCart(product, 1)
   useAlertsStore().success(product.fields.name + " added to cart");
 }
 </script>
