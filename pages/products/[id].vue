@@ -36,7 +36,7 @@ function handleAddToCart(product) {
           <h1 class="text-2xl">{{ product?.fields.name }}</h1>
           <h2>
             <ProductPrice :price="product.fields.price" />
-            <ProductHeat :heatLevel="product.fields.heatLevel" />
+            <ProductHeat :speedLevel="product.fields.speedLevel" />
           </h2>
           <div class="prose prose-sm">
             <p>{{ product.fields.summary }}</p>

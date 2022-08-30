@@ -1,15 +1,15 @@
 <script setup>
 defineProps({
-  heatLevel: String,
+  speedLevel: String,
 });
 const heatMap = {
-  Hot: "🔥🔥🔥",
-  Medium: "🔥🔥",
-  Mild: "🔥",
+  Hot: "🧹💨💨💨",
+  Medium: "🧹💨💨",
+  Mild: "🧹💨",
 };
 </script>
 <template>
   <span>
-    {{ heatLevel ? heatMap[heatLevel] : "" }}
+    {{ speedLevel ? heatMap[speedLevel] : "" }}
   </span>
 </template>

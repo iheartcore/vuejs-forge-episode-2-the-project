@@ -16,18 +16,18 @@ const filters = computed(() => productStore.filters);
       />
     </div>
     <div class="form-control w-full max-w-xs">
-      <label class="label" for="filterHeat">
-        <span class="label-text">Filter By Heat</span>
+      <label class="label" for="filterSpeed">
+        <span class="label-text">Filter By Speed</span>
       </label>
       <select
-        id="filterHeat"
+        id="filterSpeed"
         class="select select-bordered"
-        v-model="filters[`fields.heatLevel`]"
+        v-model="filters[`fields.speedLevel`]"
       >
         <option value="">All</option>
-        <option value="Mild">Mild</option>
+        <option value="Mild">Slow</option>
         <option value="Medium">Medium</option>
-        <option value="Hot">Hot</option>
+        <option value="Hot">Fast</option>
       </select>
     </div>
     <div class="form-control w-full max-w-xs">
@@ -40,8 +40,8 @@ const filters = computed(() => productStore.filters);
         id="orderBy"
       >
         <option value="">None</option>
-        <option value="-fields.heatLevel">Heat (Mild First)</option>
-        <option value="fields.heatLevel">Heat (Hot First)</option>
+        <option value="-fields.speedLevel">Speed (Slow First)</option>
+        <option value="fields.speedLevel">Speed (Fast First)</option>
         <option value="fields.price">Price (Low to High)</option>
         <option value="-fields.price">Price (High to Low)</option>
       </select>

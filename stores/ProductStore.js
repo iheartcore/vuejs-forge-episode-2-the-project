@@ -12,7 +12,7 @@ export const useProductStore = defineStore("ProductStore", {
        * Different ways of fetching the listing of products (filters, order, search)
        */
       filters: {
-        "fields.heatLevel": "",
+        "fields.speedLevel": "",
         order: "",
         query: "",
       },
@@ -34,15 +34,16 @@ export const useProductStore = defineStore("ProductStore", {
   },
   actions: {
     async fetchProducts() {
-      const res = await $fetch("/api/products");
-      this.products = res;
+      const { $contentful } = useNuxtApp();
+      const entries = await $contentful.getEntries({
+        content_type: "product",
+      });
+      this.products = entries.items;
       return this.products;
     },
     async fetchProduct(id) {
-      const products = await this.fetchProducts();
-      this.singleProduct = products.find((p) => {
-        return p.sys.id === id;
-      });
+      const { $contentful } = useNuxtApp();
+      this.singleProduct = await $contentful.getEntry(id);
       return this.singleProduct;
     },
   },

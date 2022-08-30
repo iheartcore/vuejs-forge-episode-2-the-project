@@ -11,7 +11,7 @@ defineProps<{
   >
     <div class="card h-full bg-base-100 shadow-xl relative">
       <div class="absolute top-0 right-0 p-5">
-        <ProductHeat :heatLevel="product.fields.heatLevel" />
+        <ProductHeat :speedLevel="product.fields.speedLevel" />
       </div>
       <figure>
         <img
