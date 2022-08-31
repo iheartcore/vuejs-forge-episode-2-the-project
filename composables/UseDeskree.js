@@ -104,7 +104,6 @@ export function useDeskree() {
       return loggedInUser.value;
     },
     async updateCart(products) {
-      console.log(products)
       if (!loggedInUser.value || !loggedInUser.value.cartId) return;
 
       // persist user's cart data to Deskree here

@@ -29,6 +29,8 @@ const form = reactive({
           label="Rating"
           name="rating"
           validation="required"
+          min="0"
+          max="5"
       />
       <FormKit type="text" label="Title" name="title" validation="required" />
 
